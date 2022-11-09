@@ -9,7 +9,6 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../const/app_string.dart';
 
-
 class MobileView extends StatefulWidget {
   const MobileView({super.key});
 
@@ -27,17 +26,20 @@ class _MobileViewState extends State<MobileView> {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
+            //Start top row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(AppString.logoUrl, scale: 2),
                 outlinedButton(
                   AppString.topRightBottontext,
-                  width: Get.width * 0.4,
-                  onpress: _launchUrl, onPress: () {  },
+                  width: Get.width*0.4,
+                  onPress: _launchUrl, onpress: _launchUrl(),
                 )
               ],
             ),
+            //end top row.
+            //Start title Text.
             Container(
               height: Get.height * 0.150,
               width: double.maxFinite,
@@ -46,25 +48,26 @@ class _MobileViewState extends State<MobileView> {
                   AppString.titleText,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 16,
-                      color: AppColor.cyan,
-                      letterSpacing: 1.3),
+                      fontSize: 16, color: AppColor.cyan, letterSpacing: 1.3),
                 ),
               ),
             ),
+            //End Title text
+            //Start Show copy Text
             Tooltip(
               margin: EdgeInsets.only(left: 280),
               verticalOffset: 140,
               height: 40,
               preferBelow: false,
               decoration: BoxDecoration(
-                  color: AppColor.cyan
-                  ,
+                  color: AppColor.cyan,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15))),
               message: ' Copy Text ',
+              //End Copy Text
+              // Start Card
               child: Card(
                 elevation: 3,
                 shape: StadiumBorder(),
@@ -73,10 +76,9 @@ class _MobileViewState extends State<MobileView> {
                   width: Get.width * 0.9,
                   height: Get.height * 0.4,
                   decoration: BoxDecoration(
-                      color: AppColor.white,
-                      borderRadius: BorderRadius.circular(30),
-                      
-                      ),
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                   child: Center(
                       child: AppString.cardText.length > currentIndex
                           ? AutoSizeText(
@@ -98,10 +100,14 @@ class _MobileViewState extends State<MobileView> {
                 ),
               ),
             ),
+            //End Card.
             SizedBox(
               height: 50,
             ),
+            //Start copy this question Button
             elevatedButton('Copy this question'),
+            //End copy this question Button
+            //Start try another one.
             Gaping.devider,
             outlinedButton(
               'Try another one',
@@ -115,8 +121,11 @@ class _MobileViewState extends State<MobileView> {
                         msg: 'List Finished', webPosition: 'center');
                   }
                 });
-              }, onPress: () {  },
+              },
+              onPress: () {},
             ),
+            //End try another one.
+            //Start bottomText Button
             Spacer(),
             FittedBox(
                 child: TextButton(
@@ -126,6 +135,7 @@ class _MobileViewState extends State<MobileView> {
                 style: TextStyle(color: AppColor.cyan),
               ),
             ))
+            //End bottomText Button
           ],
         ),
       ),

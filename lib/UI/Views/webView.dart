@@ -25,7 +25,7 @@ class Webview extends StatelessWidget {
                 outlinedButton(
                   AppString.topRightBottontext,
                   width: buttonWidth,
-                  onPress: _launchUrl, onpress: null,
+                  onPress: _launchUrl, onpress: _launchUrl(),
                 )
               ],
             ),
